@@ -1,5 +1,14 @@
-# Getting Started with Create React App
+#ImageSliders
 
+Stack of technologies: typescript, react, redux
+
+The project shows several slide options.
+
+imageSliders: 1. 2. 3.
+
+
+
+----------------
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
