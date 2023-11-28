@@ -1,26 +1,30 @@
 
-import car1 from './images/1.jpg'
-import car2 from './images/2.jpg'
-import car3 from './images/3.jpg'
-import car4 from './images/4.jpg'
-import "../src/styles/App.css"
+import photo1 from './public/images/1.jpg'
+import photo2 from './public/images/2.jpg'
+import photo3 from './public/images/3.jpg'
 import NavBar from './NavBar'
-import Slider from './Components/ImageSlider'
+import SlidersController from './SlidersController'
+import "./Global.css"
 
-const IMAGES = [car1,car1,car1,car1]
+
+const IMAGES = [photo1,photo2,photo3]
 
 const App = () => {
 
   return (
-    <div>
+    <div className='main'>
       <NavBar/>
-      <div><Slider 
-              imageURLs={IMAGES} 
-              autoPlay={false} 
-              autoPlayTime={0} 
-              width={'120px'} 
-              height={'120px'}
-          /></div>
+      <div className='main-body'>
+        <div className="main-body-imageController">
+          <SlidersController 
+            imageURLs={IMAGES} 
+            autoPlay={false} 
+            autoPlayTime={0} 
+            width={''} 
+            height={''}
+          />
+        </div>
+      </div>
      </div> 
 
     
