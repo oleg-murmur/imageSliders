@@ -1,4 +1,4 @@
-import React, { useState,useEffect,useMemo,useRef } from 'react';
+import React, { useState,useEffect,useMemo } from 'react';
 import './style.css';
 
 interface SliderProps {
@@ -8,34 +8,31 @@ interface SliderProps {
 const FirstSlider: React.FC<SliderProps> = ({ slides }) => {
 
   const [currentSlide, setCurrentSlide] = useState(0);
-
-  const nextSlide = () => 
+  const nextSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide === slides.length - 1 ? 0 : prevSlide + 1));
-  const prevSlide = () => {
+  }
+    const prevSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide === 0 ? slides.length - 1 : prevSlide - 1));
   }
   const selectSlide = (idSlide: number) =>{
-    setCurrentSlide(idSlide) }
+    setCurrentSlide(idSlide) 
 
+  }
 
 useEffect(() => {
-      const interval = setInterval(() => {
-        setCurrentSlide((prevIndex) => (prevIndex + 1) % slides.length); // Используем оператор остатка, чтобы зациклить индексы изображений
-      }, 2500); // Устанавливаем интервал в 3 секунды для смены изображений
-  
-      return () => clearInterval(interval); // Очищаем интервал при размонтировании компонента
+    let interval = setInterval(() => {
+      setCurrentSlide((prevIndex) => (prevIndex + 1) % slides.length); // Используем оператор остатка, чтобы зациклить индексы изображений
+    }, 2500); // Устанавливаем интервал в 3 секунды для смены изображений
+
+      return () => clearInterval(interval);
     }, []);
-console.log('test')
-
-const currentImage = useMemo(() => slides[currentSlide], [currentSlide]);
-
 
   return (
     <div className="slider-container">
       
         <div className="slider-container-slider" style={{ transform: `translateX(-${currentSlide * 100}%)`, transition: 'transform 0.5s ease' }} >
           {slides.map((slide,index) => (
-            <div className={index === currentSlide ? "slider-container-slider-slide active" : "slider-container-slider-slide"} >
+            <div key={index} className={index === currentSlide ? "slider-container-slider-slide active" : "slider-container-slider-slide"} >
               <div className="slider-container-slider-content">
                 <img src={`${slide}`}/>
               </div>
@@ -44,7 +41,7 @@ const currentImage = useMemo(() => slides[currentSlide], [currentSlide]);
         </div>
         <div className="dotList">
             {slides.map((slide,index)=>
-              <div className={index === currentSlide ? 'dot-select' : 'dot-unselect'} onClick={()=>selectSlide(index)}></div>
+              <div key={index} className={index === currentSlide ? 'dot-select' : 'dot-unselect'} onClick={()=>selectSlide(index)}></div>
             )}
         </div>
 

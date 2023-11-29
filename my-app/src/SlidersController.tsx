@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import FirstSlider from './Sliders/FirstSlider/FirstSlider'
+import SecondSlider from './Sliders/SecondSlider/SecondSlider'
 
 interface SliderProps {
     imageURLs: string[],
@@ -16,7 +17,13 @@ const SlidersController:FC<SliderProps> = ({
     width,
     height
 }) => {
-    return (<FirstSlider slides={imageURLs}/>)
+    return (
+        <>
+            {/* <FirstSlider slides={imageURLs}/> */}
+            <SecondSlider slides={imageURLs}/>
+        </>
+
+    )
 }
 
 export default SlidersController
