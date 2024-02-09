@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import FirstSlider from './Sliders/FirstSlider/FirstSlider'
 import SecondSlider from './Sliders/SecondSlider/SecondSlider'
 
@@ -17,10 +17,13 @@ const SlidersController:FC<SliderProps> = ({
     width,
     height
 }) => {
+
+
+
     return (
         <>
-            {/* <FirstSlider slides={imageURLs}/> */}
-            <SecondSlider slides={imageURLs}/>
+            <FirstSlider slides={imageURLs}/>
+            {/* <SecondSlider slides={imageURLs}/> */}
         </>
 
     )
